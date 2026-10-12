@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="bn" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Hijab Collection | Premium Hijab, Borka & Abaya</title>
     <meta name="description" content="Top Hijab Collection — বাংলাদেশের সেরা অনলাইন শালীন ফ্যাশন ব্র্যান্ড। Premium Hijab, Borka, Abaya Collection। সারা বাংলাদেশে দ্রুত ডেলিভারি।">
-    <meta name="keywords" content="hijab, borka, abaya, top hijab, ফেনীর বোরকা, ফেনীর হিজাব, muslim fashion, hijab bangladesh">
+    <meta name="keywords" content="hijab, borka, abaya, top hijab, ফেনীর বোরকা, ফেনীর হিজাব, muslim fashion">
     <meta name="author" content="Top Hijab Collection">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#dfb15b">
@@ -16,16 +16,114 @@
     <meta property="og:title" content="Top Hijab Collection | Premium Hijab, Borka & Abaya">
     <meta property="og:description" content="বাংলাদেশের সেরা অনলাইন শালীন ফ্যাশন ব্র্যান্ড।">
     <meta property="og:image" content="https://i.ibb.co/Z650JJc0/Messenger-creation-4-FE81-C6-B-2823-43-B6-A137-5-BF82-ABFC88-B.jpg">
-    <meta property="og:url" content="https://tophijabcollections.github.io/Top-Hijab-Collection-Website/">
 
     <link rel="icon" type="image/png" href="https://i.ibb.co/Z650JJc0/Messenger-creation-4-FE81-C6-B-2823-43-B6-A137-5-BF82-ABFC88-B.jpg">
     <link rel="apple-touch-icon" href="https://i.ibb.co/Z650JJc0/Messenger-creation-4-FE81-C6-B-2823-43-B6-A137-5-BF82-ABFC88-B.jpg">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- ⚡ SPEED OPTIMIZATION: Preconnect -->
+    <link rel="dns-prefetch" href="https://firestore.googleapis.com">
+    <link rel="dns-prefetch" href="https://firebaseinstallations.googleapis.com">
+    <link rel="dns-prefetch" href="https://www.gstatic.com">
+    <link rel="dns-prefetch" href="https://i.ibb.co">
+    <link rel="preconnect" href="https://firestore.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 
+    <!-- ⚡ Fonts + Icons with display=swap for faster load -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <!-- ⚡ INSTANT CACHE SYSTEM (LocalStorage) -->
+    <script>
+        window.CACHE_KEYS = {
+            products: 'thc_cache_products_v1',
+            settings: 'thc_cache_settings_v1',
+            banners: 'thc_cache_banners_v1',
+            faq: 'thc_cache_faq_v1',
+            pages: 'thc_cache_pages_v1',
+            coupons: 'thc_cache_coupons_v1',
+            sizeCharts: 'thc_cache_sizeCharts_v1',
+            homeCollections: 'thc_cache_homeCollections_v1',
+            reviews: 'thc_cache_reviews_v1'
+        };
+        window.CACHE_TTL = 24 * 60 * 60 * 1000;
+
+        window.loadFromCache = function(key) {
+            try {
+                const raw = localStorage.getItem(key);
+                if (!raw) return null;
+                const parsed = JSON.parse(raw);
+                if (!parsed.timestamp || (Date.now() - parsed.timestamp) > window.CACHE_TTL) {
+                    localStorage.removeItem(key);
+                    return null;
+                }
+                return parsed.data;
+            } catch(e) { return null; }
+        };
+        window.saveToCache = function(key, data) {
+            try { localStorage.setItem(key, JSON.stringify({ data, timestamp: Date.now() })); } catch(e) {}
+        };
+
+        window.DEFAULT_SETTINGS = {
+            storeName: 'Top Hijab Collection',
+            welcomeText: 'WELCOME TO TOP HIJAB COLLECTION ✨',
+            pageTitle: 'Top Hijab Collection | Premium Hijab, Borka & Abaya',
+            phone: '01765500211',
+            whatsapp: '8801765500211',
+            email: 'tophijabcollections@gmail.com',
+            address: 'ফেনী সওদাগর পট্টি, সওদাগর টাওয়ারের তৃতীয় তলা, ফেনী, বাংলাদেশ',
+            bkash: '01765500211', nagad: '01765500211',
+            deliveryInside: 60, deliveryOutside: 130,
+            logoUrl: 'https://i.ibb.co/Z650JJc0/Messenger-creation-4-FE81-C6-B-2823-43-B6-A137-5-BF82-ABFC88-B.jpg',
+            copyrightText: '© 2026 Top Hijab Collection. All rights reserved.',
+            contactIcons: [], paymentMethods: [], couriers: []
+        };
+
+        // Instant Load from Cache
+        try {
+            const cachedSettings = window.loadFromCache(window.CACHE_KEYS.settings);
+            if (cachedSettings) window.settingsCache = { ...window.DEFAULT_SETTINGS, ...cachedSettings };
+            else window.settingsCache = { ...window.DEFAULT_SETTINGS };
+
+            const cachedProducts = window.loadFromCache(window.CACHE_KEYS.products);
+            if (cachedProducts) window.productsCache = cachedProducts;
+            else window.productsCache = [];
+
+            const cachedBanners = window.loadFromCache(window.CACHE_KEYS.banners);
+            if (cachedBanners) window.bannersCache = cachedBanners;
+            else window.bannersCache = [];
+
+            const cachedFaq = window.loadFromCache(window.CACHE_KEYS.faq);
+            if (cachedFaq) window.faqCache = cachedFaq;
+            else window.faqCache = [];
+
+            const cachedHomeCollections = window.loadFromCache(window.CACHE_KEYS.homeCollections);
+            if (cachedHomeCollections) window.homeCollectionsCache = cachedHomeCollections;
+            else window.homeCollectionsCache = [];
+
+            const cachedPages = window.loadFromCache(window.CACHE_KEYS.pages);
+            if (cachedPages) window.pagesCache = cachedPages;
+            else window.pagesCache = {};
+
+            const cachedCoupons = window.loadFromCache(window.CACHE_KEYS.coupons);
+            if (cachedCoupons) window.couponsCache = cachedCoupons;
+            else window.couponsCache = [];
+
+            const cachedSizeCharts = window.loadFromCache(window.CACHE_KEYS.sizeCharts);
+            if (cachedSizeCharts) window.sizeChartsCache = cachedSizeCharts;
+            else window.sizeChartsCache = {};
+
+            const cachedReviews = window.loadFromCache(window.CACHE_KEYS.reviews);
+            if (cachedReviews) window.reviewsCache = cachedReviews;
+            else window.reviewsCache = {};
+
+            console.log('⚡ Cache loaded instantly');
+        } catch(e) { console.warn('Cache error:', e); }
+    </script>
+
+    <!-- ⚡ FIREBASE (Async Load) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
         import { getFirestore, collection, getDocs, addDoc, doc, getDoc, query, where } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
@@ -51,31 +149,6 @@
         window.fbQuery = query;
         window.fbWhere = where;
 
-        window.DEFAULT_SETTINGS = {
-            storeName: 'Top Hijab Collection',
-            welcomeText: 'WELCOME TO TOP HIJAB COLLECTION ✨',
-            pageTitle: 'Top Hijab Collection | Premium Hijab, Borka & Abaya',
-            phone: '01765500211',
-            whatsapp: '8801765500211',
-            email: 'tophijabcollections@gmail.com',
-            address: 'ফেনী সওদাগর পট্টি, সওদাগর টাওয়ারের তৃতীয় তলা, ফেনী, বাংলাদেশ',
-            bkash: '01765500211', nagad: '01765500211',
-            deliveryInside: 60, deliveryOutside: 130,
-            logoUrl: 'https://i.ibb.co/Z650JJc0/Messenger-creation-4-FE81-C6-B-2823-43-B6-A137-5-BF82-ABFC88-B.jpg',
-            copyrightText: '© 2026 Top Hijab Collection. All rights reserved.',
-            contactIcons: [], paymentMethods: [], couriers: []
-        };
-
-        window.productsCache = [];
-        window.settingsCache = {};
-        window.bannersCache = [];
-        window.couponsCache = [];
-        window.faqCache = [];
-        window.sizeChartsCache = {};
-        window.homeCollectionsCache = [];
-        window.reviewsCache = {};
-        window.pagesCache = {};
-
         window.showGlobalLoader = function() {
             const el = document.getElementById('global-loader');
             if (el) el.style.display = 'flex';
@@ -88,115 +161,120 @@
             setTimeout(() => { el.style.display = 'none'; }, 300);
         };
 
-        async function loadAllData() {
+        // BACKGROUND LOAD - Fire and Forget
+        async function backgroundLoadAll() {
+            console.log('🔄 Background loading fresh data...');
+
+            // Settings
             try {
-                showGlobalLoader();
-
-                // Load settings first
-                try {
-                    const sSnap = await getDoc(doc(db, 'settings', 'store'));
-                    if (sSnap.exists()) {
-                        window.settingsCache = { ...DEFAULT_SETTINGS, ...sSnap.data() };
-                    } else {
-                        window.settingsCache = { ...DEFAULT_SETTINGS };
-                    }
-                } catch(e) {
-                    console.warn('Settings failed:', e);
-                    window.settingsCache = { ...DEFAULT_SETTINGS };
+                const sSnap = await getDoc(doc(db, 'settings', 'store'));
+                if (sSnap.exists()) {
+                    window.settingsCache = { ...window.DEFAULT_SETTINGS, ...sSnap.data() };
+                    window.saveToCache(window.CACHE_KEYS.settings, window.settingsCache);
+                    if (typeof applySettings === 'function') applySettings();
                 }
-                if (typeof applySettings === 'function') applySettings();
+            } catch (e) { console.warn('Settings:', e); }
 
-                // Load products
-                try {
-                    const pSnap = await getDocs(collection(db, 'products'));
-                    const arr = [];
-                    pSnap.forEach(d => arr.push({ docId: d.id, ...d.data() }));
-                    arr.sort((a, b) => (parseInt(a.id) || 0) - (parseInt(b.id) || 0));
-                    window.productsCache = arr;
-                } catch(e) { console.warn('Products failed:', e); }
+            // Products
+            try {
+                const pSnap = await getDocs(collection(db, 'products'));
+                const arr = [];
+                pSnap.forEach(d => arr.push({ docId: d.id, ...d.data() }));
+                arr.sort((a, b) => (parseInt(a.id) || 0) - (parseInt(b.id) || 0));
+                window.productsCache = arr;
+                window.saveToCache(window.CACHE_KEYS.products, arr);
+                if (typeof renderAllProducts === 'function') renderAllProducts();
+            } catch (e) { console.warn('Products:', e); }
 
-                // Load banners
-                try {
-                    const bSnap = await getDocs(collection(db, 'banners'));
-                    const arr = [];
-                    bSnap.forEach(d => arr.push({ id: d.id, ...d.data() }));
-                    window.bannersCache = arr.filter(b => b.active !== false).sort((a, b) => (parseInt(a.order) || 99) - (parseInt(b.order) || 99));
-                } catch(e) { console.warn('Banners failed:', e); }
-
-                // Load home collections
-                try {
-                    const hcSnap = await getDocs(collection(db, 'homeCollections'));
-                    const arr = [];
-                    hcSnap.forEach(d => arr.push({ id: d.id, ...d.data() }));
-                    window.homeCollectionsCache = arr.filter(x => x.enabled !== false).sort((a, b) => (parseInt(a.order) || 99) - (parseInt(b.order) || 99));
-                } catch(e) { console.warn('HomeCollections failed:', e); }
-
-                // Load FAQ
-                try {
-                    const fSnap = await getDocs(collection(db, 'faq'));
-                    const arr = [];
-                    fSnap.forEach(d => arr.push({ id: d.id, ...d.data() }));
-                    arr.sort((a, b) => (parseInt(a.order) || 99) - (parseInt(b.order) || 99));
-                    window.faqCache = arr;
-                } catch(e) { console.warn('FAQ failed:', e); }
-
-                // Load pages
-                try {
-                    const pgSnap = await getDocs(collection(db, 'pages'));
-                    const obj = {};
-                    pgSnap.forEach(d => { obj[d.id] = (d.data().html || ''); });
-                    window.pagesCache = obj;
-                } catch(e) { console.warn('Pages failed:', e); }
-
-                // Load coupons
-                try {
-                    const cSnap = await getDocs(collection(db, 'coupons'));
-                    const arr = [];
-                    cSnap.forEach(d => arr.push({ id: d.id, ...d.data() }));
-                    window.couponsCache = arr;
-                } catch(e) { console.warn('Coupons failed:', e); }
-
-                // Load size charts
-                try {
-                    const szSnap = await getDocs(collection(db, 'sizeCharts'));
-                    const obj = {};
-                    szSnap.forEach(d => { obj[d.id] = d.data(); });
-                    window.sizeChartsCache = obj;
-                } catch(e) { console.warn('SizeCharts failed:', e); }
-
-                // Load reviews
-                try {
-                    const rSnap = await getDocs(collection(db, 'reviews'));
-                    const obj = {};
-                    rSnap.forEach(d => {
-                        const data = d.data();
-                        const pid = data.productId;
-                        if (pid === undefined || pid === null) return;
-                        if (!obj[pid]) obj[pid] = [];
-                        obj[pid].push({ id: d.id, ...data });
-                    });
-                    window.reviewsCache = obj;
-                } catch(e) { console.warn('Reviews failed:', e); }
-
-                // Render everything
-                if (typeof renderProducts === 'function') renderProducts();
+            // Banners
+            try {
+                const bSnap = await getDocs(collection(db, 'banners'));
+                const arr = [];
+                bSnap.forEach(d => arr.push({ id: d.id, ...d.data() }));
+                window.bannersCache = arr.filter(b => b.active !== false).sort((a, b) => (parseInt(a.order) || 99) - (parseInt(b.order) || 99));
+                window.saveToCache(window.CACHE_KEYS.banners, window.bannersCache);
                 if (typeof renderBannerSlider === 'function') renderBannerSlider();
-                if (typeof renderHomeCollections === 'function') renderHomeCollections();
-                if (typeof renderHomeCoupons === 'function') renderHomeCoupons();
-                if (typeof renderFAQ === 'function') renderFAQ();
-                if (typeof updateFilterCounts === 'function') updateFilterCounts();
+            } catch (e) { console.warn('Banners:', e); }
 
-                hideGlobalLoader();
-                document.body.classList.add('content-ready');
-                console.log('✅ All data loaded');
-            } catch(err) {
-                console.error('Load error:', err);
-                hideGlobalLoader();
-                document.body.classList.add('content-ready');
-            }
+            // Home Collections
+            try {
+                const hcSnap = await getDocs(collection(db, 'homeCollections'));
+                const arr = [];
+                hcSnap.forEach(d => arr.push({ id: d.id, ...d.data() }));
+                window.homeCollectionsCache = arr.filter(x => x.enabled !== false).sort((a, b) => (parseInt(a.order) || 99) - (parseInt(b.order) || 99));
+                window.saveToCache(window.CACHE_KEYS.homeCollections, window.homeCollectionsCache);
+                if (typeof renderHomeCollections === 'function') renderHomeCollections();
+            } catch (e) { console.warn('HomeCollections:', e); }
+
+            // FAQ
+            try {
+                const fSnap = await getDocs(collection(db, 'faq'));
+                const arr = [];
+                fSnap.forEach(d => arr.push({ id: d.id, ...d.data() }));
+                arr.sort((a, b) => (parseInt(a.order) || 99) - (parseInt(b.order) || 99));
+                window.faqCache = arr;
+                window.saveToCache(window.CACHE_KEYS.faq, arr);
+                if (typeof renderFAQ === 'function') renderFAQ();
+            } catch (e) { console.warn('FAQ:', e); }
+
+            // Pages
+            try {
+                const pgSnap = await getDocs(collection(db, 'pages'));
+                const obj = {};
+                pgSnap.forEach(d => { obj[d.id] = (d.data().html || ''); });
+                window.pagesCache = obj;
+                window.saveToCache(window.CACHE_KEYS.pages, obj);
+            } catch (e) { console.warn('Pages:', e); }
+
+            // Coupons
+            try {
+                const cSnap = await getDocs(collection(db, 'coupons'));
+                const arr = [];
+                cSnap.forEach(d => arr.push({ id: d.id, ...d.data() }));
+                window.couponsCache = arr;
+                window.saveToCache(window.CACHE_KEYS.coupons, arr);
+                if (typeof renderHomeCoupons === 'function') renderHomeCoupons();
+            } catch (e) { console.warn('Coupons:', e); }
+
+            // Size Charts
+            try {
+                const szSnap = await getDocs(collection(db, 'sizeCharts'));
+                const obj = {};
+                szSnap.forEach(d => { obj[d.id] = d.data(); });
+                window.sizeChartsCache = obj;
+                window.saveToCache(window.CACHE_KEYS.sizeCharts, obj);
+            } catch (e) { console.warn('SizeCharts:', e); }
+
+            // Reviews
+            try {
+                const rSnap = await getDocs(collection(db, 'reviews'));
+                const obj = {};
+                rSnap.forEach(d => {
+                    const data = d.data();
+                    const pid = data.productId;
+                    if (pid === undefined || pid === null) return;
+                    if (!obj[pid]) obj[pid] = [];
+                    obj[pid].push({ id: d.id, ...data });
+                });
+                window.reviewsCache = obj;
+                window.saveToCache(window.CACHE_KEYS.reviews, obj);
+            } catch (e) { console.warn('Reviews:', e); }
+
+            console.log('✅ Background load complete');
         }
 
-        window.addEventListener('DOMContentLoaded', loadAllData);
+        window.backgroundLoadAll = backgroundLoadAll;
+
+        window.addEventListener('DOMContentLoaded', () => {
+            hideGlobalLoader();
+            document.body.classList.add('content-ready');
+            if (typeof initWebsite === 'function') initWebsite();
+
+            // Load fresh data in background after 500ms
+            setTimeout(() => {
+                backgroundLoadAll();
+            }, 500);
+        });
     </script>
 
     <style>
@@ -235,6 +313,7 @@
             padding-bottom: 70px;
             background-image: radial-gradient(circle at 50% 0%, rgba(223, 177, 91, 0.05) 0%, transparent 60%);
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
         a { text-decoration: none; color: inherit; }
 
@@ -250,14 +329,15 @@
             border: 2px solid var(--gold-color);
             overflow: hidden; background: #000;
             animation: loaderPulse 1.5s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(223,177,91,.4);
         }
         #global-loader .loader-logo img { width: 100%; height: 100%; object-fit: cover; }
         #global-loader .loader-text { color: var(--gold-color); font-size: 13px; font-weight: 600; }
-        @keyframes loaderPulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+        @keyframes loaderPulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.08); opacity: 0.85; } }
 
         .brand-title, .welcome-title, .collections-header, .category-title-label { color: var(--gold-color); }
 
-        #reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #ff007f, #7928ca, #ffb15b); z-index: 9999; }
+        #reading-progress { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: linear-gradient(90deg, #ff007f, #7928ca, #ffb15b, #00dfd8); z-index: 9999; }
         body.content-ready { animation: pageFadeIn 0.3s ease; }
         @keyframes pageFadeIn { from { opacity: 0; } to { opacity: 1; } }
 
@@ -265,10 +345,13 @@
             background-color: var(--secondary-color);
             position: sticky; top: 0; z-index: 1000;
             border-bottom: 1px solid var(--border-color);
+            transition: padding 0.3s;
         }
+        header.shrunk .header-container { padding: 8px 15px; }
         .header-container {
             display: flex; justify-content: space-between; align-items: center;
             padding: 12px 15px;
+            transition: padding 0.3s;
         }
         .header-left { display: flex; align-items: center; gap: 12px; }
         .menu-icon, .header-right-icons i { font-size: 20px; color: var(--text-color); cursor: pointer; }
@@ -278,9 +361,13 @@
             border: 1.5px solid var(--gold-color); overflow: hidden;
             display: flex; align-items: center; justify-content: center;
             background: #000; flex-shrink: 0;
+            box-shadow: 0 0 10px rgba(223, 177, 91, 0.25);
+            transition: width 0.3s, height 0.3s;
         }
+        header.shrunk .header-logo-circle { width: 30px; height: 30px; }
         .header-logo-circle img { width: 100%; height: 100%; object-fit: cover; }
         .brand-title { font-size: 12px; letter-spacing: 0.3px; }
+        header.shrunk .brand-title { font-size: 11px; }
         .header-right-icons { display: flex; align-items: center; gap: 15px; position: relative; }
         .header-theme-btn {
             width: 35px; height: 35px; border-radius: 50%;
@@ -302,8 +389,15 @@
         .wishlist-icon-wrapper { position: relative; cursor: pointer; }
         .wishlist-icon-wrapper i { color: #ff007f; }
         .cart-icon-wrapper { position: relative; cursor: pointer; }
+        .cart-icon-wrapper.bounce, .wishlist-icon-wrapper.bounce { animation: cartBounce 0.6s ease; }
+        @keyframes cartBounce {
+            0%, 100% { transform: scale(1); }
+            30% { transform: scale(1.3); }
+            50% { transform: scale(0.9); }
+            70% { transform: scale(1.15); }
+        }
 
-        .search-section { padding: 12px 15px; }
+        .search-section { padding: 12px 15px; background: var(--bg-color); }
         .search-box { position: relative; width: 100%; }
         .search-box input {
             width: 100%; padding: 12px 15px 12px 40px;
@@ -311,6 +405,7 @@
             border-radius: 10px; color: var(--text-color);
             font-size: 14px; outline: none;
         }
+        .search-box input:focus { border-color: var(--gold-color); }
         .search-box i {
             position: absolute; left: 15px; top: 50%;
             transform: translateY(-50%); color: var(--gold-color);
@@ -417,6 +512,7 @@
             display: flex; align-items: center;
             justify-content: space-between; gap: 15px;
         }
+        .home-coupon-left { flex: 1; min-width: 0; }
         .home-coupon-code {
             font-family: 'Courier New', monospace; font-size: 20px;
             font-weight: 800; color: var(--gold-color);
@@ -555,6 +651,7 @@
             width: 55px; height: 55px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             font-size: 28px; z-index: 2100; cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
         }
         #back-to-top {
             position: fixed; bottom: 155px; right: 20px;
@@ -1318,6 +1415,7 @@
             padding: 12px 20px; border-radius: 30px;
             z-index: 6000; opacity: 0; visibility: hidden;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
         #custom-toast.toast-visible {
             transform: translateX(-50%) translateY(0);
@@ -1735,7 +1833,7 @@
     <!-- HOME SECTION -->
     <div id="home-section" class="page-section active-page">
         <div class="welcome-section">
-            <h1 class="welcome-title dynamic-welcome-text"></h1>
+            <h1 class="welcome-title dynamic-welcome-text">WELCOME TO TOP HIJAB COLLECTION ✨</h1>
             <div class="center-logo-container">
                 <div class="center-logo-circle"><img class="dynamic-logo" src="https://i.ibb.co/Z650JJc0/Messenger-creation-4-FE81-C6-B-2823-43-B6-A137-5-BF82-ABFC88-B.jpg" alt="Center Logo"></div>
             </div>
@@ -1759,7 +1857,7 @@
 
     <!-- SHOP SECTION -->
     <div id="shop-section" class="page-section">
-        <h2 id="shop-title" style="margin-bottom: 5px; color: var(--gold-color);">Shop All Collections</h2>
+        <h2 id="shop-title" style="margin-bottom: 5px; color: var(--gold-color); font-family: 'Playfair Display', serif;">Shop All Collections</h2>
         <p id="shop-desc" style="color: var(--text-muted); margin-bottom: 15px; font-size: 13px;">Explore our exclusive range of premium hijabs, borkas, and abayas.</p>
 
         <div class="category-filter-bar" id="category-filter-bar">
@@ -1769,7 +1867,12 @@
             <button class="filter-chip" data-cat="Abaya Collection" onclick="filterCategory('Abaya Collection')">🤍 Abaya <span class="count" id="count-abaya">0</span></button>
         </div>
 
-        <div class="product-grid" id="product-grid-container"></div>
+        <div class="product-grid" id="product-grid-container">
+            <div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
+                <i class="fas fa-spinner fa-spin" style="font-size: 32px; color: var(--gold-color);"></i>
+                <p style="margin-top: 15px;">Loading products...</p>
+            </div>
+        </div>
     </div>
 
     <!-- WISHLIST SECTION -->
@@ -1802,8 +1905,8 @@
             <h3>আরো প্রশ্ন আছে?</h3>
             <p>আমাদের সরাসরি জিজ্ঞাসা করুন — আমরা সাহায্য করতে প্রস্তুত!</p>
             <div class="faq-contact-buttons">
-                <a href="#" target="_blank" class="faq-contact-btn whatsapp dynamic-whatsapp-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                <a href="#" class="faq-contact-btn phone dynamic-phone-link"><i class="fas fa-phone"></i> Call Now</a>
+                <a href="https://wa.me/8801765500211" target="_blank" class="faq-contact-btn whatsapp dynamic-whatsapp-link"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="tel:01765500211" class="faq-contact-btn phone dynamic-phone-link"><i class="fas fa-phone"></i> Call Now</a>
             </div>
         </div>
     </div>
@@ -1935,18 +2038,18 @@
             <div class="social-icons-row">
                 <a href="#" class="social-icon facebook" title="Facebook" onclick="socialPlaceholder(event, 'Facebook')"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-icon instagram" title="Instagram" onclick="socialPlaceholder(event, 'Instagram')"><i class="fab fa-instagram"></i></a>
-                <a href="#" target="_blank" class="social-icon whatsapp dynamic-whatsapp-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://wa.me/8801765500211" target="_blank" class="social-icon whatsapp dynamic-whatsapp-link" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                 <a href="#" class="social-icon youtube" title="YouTube" onclick="socialPlaceholder(event, 'YouTube')"><i class="fab fa-youtube"></i></a>
                 <a href="#" class="social-icon tiktok" title="TikTok" onclick="socialPlaceholder(event, 'TikTok')"><i class="fab fa-tiktok"></i></a>
             </div>
         </div>
     </div>
     <div class="footer-bottom-text" style="margin-top: 30px;">
-        <span class="dynamic-copyright"></span>
+        <span class="dynamic-copyright">© 2026 Top Hijab Collection. All rights reserved.</span>
     </div>
 </footer>
 
-<a href="#" target="_blank" class="whatsapp-chat-btn dynamic-whatsapp-link" id="whatsapp-chat-btn" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/8801765500211" target="_blank" class="whatsapp-chat-btn dynamic-whatsapp-link" id="whatsapp-chat-btn" title="Chat on WhatsApp"><i class="fab fa-whatsapp"></i></a>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
@@ -1963,7 +2066,7 @@
         <p id="toast-message">Successfully added to cart!</p>
     </div>
 </div>
-<script>
+            <script>
 // ============================================
 // GLOBAL STATE
 // ============================================
@@ -1993,7 +2096,7 @@ const BANNER_AUTO_SLIDE_MS = 5000;
 let bannerSwipeStartX = 0, bannerSwipeEndX = 0, bannerSwipeAttached = false;
 
 // ============================================
-// URL EXTRACTOR
+// UTILITIES
 // ============================================
 function extractUrl(str) {
     if (!str || typeof str !== 'string') return '';
@@ -2004,14 +2107,133 @@ function extractUrl(str) {
     return '';
 }
 
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str).replace(/[&<>"']/g, function(m) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m];
+    });
+}
+
 // ============================================
-// APPLY SETTINGS
+// INIT WEBSITE
 // ============================================
-window.applySettings = function() {
+window.initWebsite = function() {
+    console.log('🎬 Initializing website...');
+
+    // Apply settings
+    applySettings();
+
+    // Render everything
+    renderAllProducts();
+    renderBannerSlider();
+    renderHomeCollections();
+    renderHomeCoupons();
+    renderFAQ();
+    renderMiniCart();
+    updateCartBadge();
+    updateWishlistBadge();
+
+    // Setup event listeners
+    setupEventListeners();
+
+    // Apply saved theme
+    applySavedTheme();
+
+    // Handle URL (product ID)
+    handleInitialURL();
+
+    console.log('✅ Website initialized');
+};
+
+function setupEventListeners() {
+    // Sidebar
+    const openSidebarBtn = document.getElementById('openSidebar');
+    const closeSidebarBtn = document.getElementById('closeSidebar');
+    const overlayEl = document.getElementById('overlay');
+
+    if (openSidebarBtn) {
+        openSidebarBtn.addEventListener('click', openSidebarMenu);
+    }
+    if (closeSidebarBtn) {
+        closeSidebarBtn.addEventListener('click', closeSidebar);
+    }
+    if (overlayEl) {
+        overlayEl.addEventListener('click', closeSidebar);
+    }
+
+    // Theme toggles
+    const headerThemeBtn = document.getElementById('headerThemeToggleBtn');
+    const sidebarThemeBtn = document.getElementById('sidebarThemeToggleBtn');
+    if (headerThemeBtn) headerThemeBtn.addEventListener('click', toggleTheme);
+    if (sidebarThemeBtn) sidebarThemeBtn.addEventListener('click', toggleTheme);
+
+    // Scroll
+    window.addEventListener('scroll', handleScroll, { passive: true });
+
+    // ESC key
+    document.addEventListener('keydown', handleEscKey);
+
+    // Payment change (delegated)
+    document.addEventListener('change', function(e) {
+        if (e.target && e.target.name === 'payment') {
+            handlePaymentChange();
+        }
+    });
+
+    // Shipping change (delegated)
+    document.addEventListener('change', function(e) {
+        if (e.target && e.target.id === 'shipping-select') {
+            updateDeliveryCharge();
+        }
+    });
+}
+
+function handleEscKey(e) {
+    if (e.key === 'Escape') {
+        closeMiniCart();
+        closeShareModal();
+        closeImageModal();
+        closeSizeChart();
+        closeVideoModal();
+        closeSidebar();
+    }
+}
+
+let scrollTick = false;
+function handleScroll() {
+    if (scrollTick) return;
+    scrollTick = true;
+    requestAnimationFrame(() => {
+        const header = document.getElementById('main-header');
+        if (header) header.classList.toggle('shrunk', window.scrollY > 80);
+        const btn = document.getElementById('back-to-top');
+        if (btn) btn.classList.toggle('visible', window.scrollY > 400);
+        const progress = document.getElementById('reading-progress');
+        if (progress) {
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            progress.style.width = (docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0) + '%';
+        }
+        scrollTick = false;
+    });
+}
+
+// ============================================
+// APPLY SETTINGS TO WEBSITE
+// ============================================
+function applySettings() {
     const s = window.settingsCache || window.DEFAULT_SETTINGS;
+
     if (s.pageTitle) document.title = s.pageTitle;
+
     document.querySelectorAll('.dynamic-store-name').forEach(el => el.textContent = s.storeName || '');
-    document.querySelectorAll('.dynamic-welcome-text').forEach(el => el.textContent = s.welcomeText || '');
+
+    // Only set welcome text if it's empty
+    document.querySelectorAll('.dynamic-welcome-text').forEach(el => {
+        if (el.textContent.trim() === '' || el.textContent.trim().startsWith('WELCOME')) {
+            el.textContent = s.welcomeText || '';
+        }
+    });
+
     document.querySelectorAll('.dynamic-phone').forEach(el => el.textContent = s.phone || '');
     document.querySelectorAll('.dynamic-phone-link').forEach(el => {
         if (el.tagName === 'A') el.href = 'tel:' + (s.phone || '').replace(/[^0-9+]/g, '');
@@ -2033,11 +2255,12 @@ window.applySettings = function() {
 
     const logoUrl = s.logoUrl || 'https://i.ibb.co/Z650JJc0/Messenger-creation-4-FE81-C6-B-2823-43-B6-A137-5-BF82-ABFC88-B.jpg';
     document.querySelectorAll('.dynamic-logo').forEach(el => { if (el.tagName === 'IMG') el.src = logoUrl; });
-    const favicon = document.querySelector('link[rel="icon"]');
-    if (favicon) favicon.href = logoUrl;
 
-    document.querySelectorAll('.dynamic-copyright').forEach(el => el.textContent = s.copyrightText || `© ${new Date().getFullYear()} ${s.storeName}. All rights reserved.`);
+    document.querySelectorAll('.dynamic-copyright').forEach(el => {
+        el.textContent = s.copyrightText || `© ${new Date().getFullYear()} ${s.storeName}. All rights reserved.`;
+    });
 
+    // Social icons
     const fb = document.querySelector('.social-icon.facebook');
     if (fb && s.facebook) { fb.href = s.facebook; fb.target = '_blank'; fb.onclick = null; }
     const ig = document.querySelector('.social-icon.instagram');
@@ -2048,9 +2271,11 @@ window.applySettings = function() {
     if (tt && s.tiktok) { tt.href = s.tiktok; tt.target = '_blank'; tt.onclick = null; }
 
     renderContactIconsOnWebsite();
-};
+}
 
-window.renderContactIconsOnWebsite = function() {
+window.applySettings = applySettings;
+
+function renderContactIconsOnWebsite() {
     const s = window.settingsCache || window.DEFAULT_SETTINGS || {};
     const icons = Array.isArray(s.contactIcons) ? s.contactIcons.filter(x => x.enabled !== false) : [];
     const containers = document.querySelectorAll('.dynamic-contact-icons-container');
@@ -2082,33 +2307,41 @@ window.renderContactIconsOnWebsite = function() {
         </div>`;
     });
     containers.forEach(container => { container.innerHTML = html; });
-};
+}
 
 // ============================================
 // PRODUCTS RENDER
 // ============================================
-window.renderProducts = function() {
+window.renderAllProducts = function() {
     const products = window.productsCache || [];
     updateFilterCounts();
     updateWishlistBadge();
-    renderProductsGrid(document.getElementById('product-grid-container'), products);
+
+    const gridContainer = document.getElementById('product-grid-container');
+    renderProductsGrid(gridContainer, products);
+
     const wl = document.getElementById('wishlist-section');
     if (wl && wl.classList.contains('active-page')) renderWishlist();
 };
 
-window.updateFilterCounts = function() {
+function updateFilterCounts() {
     const products = window.productsCache || [];
     const el = (id) => document.getElementById(id);
     if (el('count-all')) el('count-all').textContent = products.length;
     if (el('count-hijab')) el('count-hijab').textContent = products.filter(p => p.category === 'Hijab Collection').length;
     if (el('count-borka')) el('count-borka').textContent = products.filter(p => p.category === 'Borka Collection').length;
     if (el('count-abaya')) el('count-abaya').textContent = products.filter(p => p.category === 'Abaya Collection').length;
-};
+}
+
+window.updateFilterCounts = updateFilterCounts;
 
 function renderProductsGrid(container, items) {
     if (!container) return;
     if (!items || items.length === 0) {
-        container.innerHTML = `<p style="grid-column: span 2; text-align: center; color: var(--text-muted); padding: 30px;">কোনো প্রোডাক্ট পাওয়া যায়নি।</p>`;
+        container.innerHTML = `<div style="grid-column: 1 / -1; text-align: center; padding: 60px 20px; color: var(--text-muted);">
+            <i class="fas fa-box-open" style="font-size: 40px; color: var(--gold-color); opacity: 0.4; display: block; margin-bottom: 15px;"></i>
+            <p>কোনো প্রোডাক্ট পাওয়া যায়নি।</p>
+        </div>`;
         return;
     }
     let html = '';
@@ -2166,14 +2399,17 @@ window.filterCategory = function(categoryName) {
         title = categoryName;
         desc = 'Showing exclusive items for ' + categoryName;
     }
-    document.getElementById('shop-title').textContent = title;
-    document.getElementById('shop-desc').textContent = desc;
+    const titleEl = document.getElementById('shop-title');
+    const descEl = document.getElementById('shop-desc');
+    if (titleEl) titleEl.textContent = title;
+    if (descEl) descEl.textContent = desc;
     renderProductsGrid(document.getElementById('product-grid-container'), filtered);
     switchTab('shop');
 };
 
 window.filterProductsBySearch = function() {
-    const query = document.getElementById('search-input').value.toLowerCase();
+    const searchInput = document.getElementById('search-input');
+    const query = searchInput ? searchInput.value.toLowerCase() : '';
     const products = window.productsCache || [];
     let filtered = [], title = '', desc = '';
     if (query.trim() === '') {
@@ -2185,12 +2421,14 @@ window.filterProductsBySearch = function() {
             if (chip.getAttribute('data-cat') === 'all') chip.classList.add('active');
         });
     } else {
-        filtered = products.filter(p => p.name.toLowerCase().includes(query) || (p.category || '').toLowerCase().includes(query));
+        filtered = products.filter(p => (p.name || '').toLowerCase().includes(query) || (p.category || '').toLowerCase().includes(query));
         title = 'Search Results';
         desc = 'Showing matches for: ' + query;
     }
-    document.getElementById('shop-title').textContent = title;
-    document.getElementById('shop-desc').textContent = desc;
+    const titleEl = document.getElementById('shop-title');
+    const descEl = document.getElementById('shop-desc');
+    if (titleEl) titleEl.textContent = title;
+    if (descEl) descEl.textContent = desc;
     renderProductsGrid(document.getElementById('product-grid-container'), filtered);
     switchTab('shop');
 };
@@ -2208,14 +2446,17 @@ function updateWishlistBadge() {
     if (pageCount) pageCount.textContent = wishlist.length;
 }
 
+window.updateWishlistBadge = updateWishlistBadge;
+
 window.toggleWishlist = function(productId, event) {
     if (event) { event.stopPropagation(); event.preventDefault(); }
-    const idx = wishlist.indexOf(productId);
+    const id = parseInt(productId);
+    const idx = wishlist.indexOf(id);
     if (idx > -1) {
         wishlist.splice(idx, 1);
         showToast('💔 Wishlist থেকে সরানো হয়েছে');
     } else {
-        wishlist.push(productId);
+        wishlist.push(id);
         showToast('❤️ Wishlist এ যোগ হয়েছে');
     }
     localStorage.setItem('top_hijab_wishlist', JSON.stringify(wishlist));
@@ -2226,6 +2467,8 @@ window.toggleWishlist = function(productId, event) {
     updateWishlistBadge();
     const wl = document.getElementById('wishlist-section');
     if (wl && wl.classList.contains('active-page')) renderWishlist();
+    const icon = document.getElementById('wishlist-icon-wrapper');
+    if (icon) { icon.classList.add('bounce'); setTimeout(() => icon.classList.remove('bounce'), 600); }
 };
 
 function renderWishlist() {
@@ -2269,6 +2512,8 @@ function renderWishlist() {
     html += '</div>';
     container.innerHTML = html;
 }
+
+window.renderWishlist = renderWishlist;
 
 window.clearAllWishlist = function() {
     if (wishlist.length === 0) { showToast('⚠️ Wishlist খালি'); return; }
@@ -2574,7 +2819,7 @@ window.filterFAQ = function(cat) {
 // ============================================
 window.openProductDetails = function(productId) {
     const product = (window.productsCache || []).find(p => parseInt(p.id) === parseInt(productId));
-    if (!product) return;
+    if (!product) { showToast('❌ প্রোডাক্ট পাওয়া যায়নি'); return; }
     currentProductId = productId;
     selectedSize = null;
     selectedColor = null;
@@ -2997,6 +3242,7 @@ window.submitReview = async function() {
             text: text || '(no comment)',
             date: new Date().toISOString()
         });
+        if (window.saveToCache) window.saveToCache(window.CACHE_KEYS.reviews, window.reviewsCache);
 
         showToast('✅ ধন্যবাদ! Review যোগ হয়েছে');
         currentRating = 0;
@@ -3013,11 +3259,16 @@ window.submitReview = async function() {
 // ============================================
 // CART & CHECKOUT
 // ============================================
-window.updateCartUI = function() {
+function updateCartBadge() {
     const cartCount = document.getElementById('cart-count');
     let totalItemsCount = 0;
     cart.forEach(item => totalItemsCount += item.quantity);
     if (cartCount) cartCount.textContent = totalItemsCount;
+}
+window.updateCartBadge = updateCartBadge;
+
+window.updateCartUI = function() {
+    updateCartBadge();
 
     const cartContainer = document.getElementById('cart-items-container');
     if (!cartContainer) return;
@@ -3270,13 +3521,6 @@ window.renderAllPaymentInstructionBoxes = function(deliveryCharge, totalAmount, 
             </div>
             <div class="form-group" style="margin-top: 15px;"><label>আপনার অ্যাকাউন্ট নম্বর *</label><input type="tel" id="bank-sender-input" placeholder="অ্যাকাউন্ট নম্বর"></div>
             <div class="form-group" style="margin-bottom: 0;"><label>TrxID / Reference *</label><input type="text" id="bank-trx-input" placeholder="TrxID / Reference"></div>
-        </div>
-
-        <div class="instruction-box" id="custom-instruction-box">
-            <h4><i class="fas fa-info-circle"></i> পেমেন্ট নির্দেশিকা:</h4>
-            <div style="font-size: 13px; line-height: 1.8; padding: 10px; background: var(--card-bg); border-radius: 8px; margin-bottom: 10px;" id="custom-instruction-text"></div>
-            <div class="form-group" style="margin-top: 15px;"><label>প্রেরকের তথ্য *</label><input type="tel" id="custom-sender-input" placeholder="017xxxxxxxx"></div>
-            <div class="form-group" style="margin-bottom: 0;"><label>TrxID *</label><input type="text" id="custom-trx-input" placeholder="9L8A7B6C"></div>
         </div>`;
 };
 
@@ -3289,7 +3533,7 @@ window.handlePaymentChange = function() {
     const selectedMethod = methods.find(m => (m.value || m.name) === selectedPayment);
     const instructionType = selectedMethod ? (selectedMethod.instructionType || 'none') : 'none';
 
-    const boxIds = ['cod-instruction-box','bkash-instruction-box','nagad-instruction-box','bank-instruction-box','custom-instruction-box'];
+    const boxIds = ['cod-instruction-box','bkash-instruction-box','nagad-instruction-box','bank-instruction-box'];
     boxIds.forEach(id => { const b = document.getElementById(id); if (b) b.style.display = 'none'; });
 
     const shippingSelect = document.getElementById('shipping-select');
@@ -3308,8 +3552,7 @@ window.handlePaymentChange = function() {
         cod: 'cod-instruction-box',
         bkash: 'bkash-instruction-box',
         nagad: 'nagad-instruction-box',
-        bank: 'bank-instruction-box',
-        custom: 'custom-instruction-box'
+        bank: 'bank-instruction-box'
     };
     const boxId = typeToBox[instructionType];
     if (boxId) {
@@ -3318,10 +3561,6 @@ window.handlePaymentChange = function() {
         if (instructionType === 'cod') { const el = document.getElementById('cod-amount-text'); if (el) el.textContent = deliveryCharge; }
         if (instructionType === 'bkash') { const el = document.getElementById('bkash-amount-text'); if (el) el.textContent = totalAmount; }
         if (instructionType === 'nagad') { const el = document.getElementById('nagad-amount-text'); if (el) el.textContent = totalAmount; }
-        if (instructionType === 'custom') {
-            const ct = document.getElementById('custom-instruction-text');
-            if (ct) ct.innerHTML = selectedMethod.customInstruction || 'আমাদের সাথে যোগাযোগ করুন।';
-        }
     }
 };
 
@@ -3329,16 +3568,23 @@ window.copyNumber = function(num, typeName) {
     navigator.clipboard.writeText(num).then(() => { showToast(typeName + ' কপি হয়েছে: ' + num); }).catch(() => showToast('❌ কপি করা যায়নি'));
 };
 
+// ============================================
+// MINI CART
+// ============================================
 window.openMiniCart = function() {
     renderMiniCart();
-    document.getElementById('mini-cart-overlay').classList.add('active');
-    document.getElementById('mini-cart-sidebar').classList.add('active');
+    const overlay = document.getElementById('mini-cart-overlay');
+    const sidebar = document.getElementById('mini-cart-sidebar');
+    if (overlay) overlay.classList.add('active');
+    if (sidebar) sidebar.classList.add('active');
     document.body.style.overflow = 'hidden';
 };
 
 window.closeMiniCart = function() {
-    document.getElementById('mini-cart-overlay').classList.remove('active');
-    document.getElementById('mini-cart-sidebar').classList.remove('active');
+    const overlay = document.getElementById('mini-cart-overlay');
+    const sidebar = document.getElementById('mini-cart-sidebar');
+    if (overlay) overlay.classList.remove('active');
+    if (sidebar) sidebar.classList.remove('active');
     document.body.style.overflow = '';
 };
 
@@ -3354,7 +3600,7 @@ window.renderMiniCart = function() {
             <p>Your cart is empty!</p>
             <button class="mini-cart-shop-btn" onclick="closeMiniCart(); switchTab('shop');">Start Shopping</button>
         </div>`;
-        footer.style.display = 'none';
+        if (footer) footer.style.display = 'none';
         return;
     }
 
@@ -3380,7 +3626,7 @@ window.renderMiniCart = function() {
         </div>`;
     });
     body.innerHTML = html;
-    footer.style.display = 'block';
+    if (footer) footer.style.display = 'block';
     if (subtotalEl) subtotalEl.textContent = '৳ ' + subtotal;
 };
 
@@ -3429,8 +3675,7 @@ window.submitOrder = async function(event) {
         cod: ['cod-sender-input','cod-trx-input'],
         bkash: ['bkash-sender-input','bkash-trx-input'],
         nagad: ['nagad-sender-input','nagad-trx-input'],
-        bank: ['bank-sender-input','bank-trx-input'],
-        custom: ['custom-sender-input','custom-trx-input']
+        bank: ['bank-sender-input','bank-trx-input']
     };
 
     if (fieldMap[instructionType]) {
@@ -3446,10 +3691,8 @@ window.submitOrder = async function(event) {
     }
 
     let subtotal = 0;
-    let hasPriceComingSoon = false;
     cart.forEach(item => {
         if (typeof item.price === 'number') subtotal += (item.price * item.quantity);
-        else hasPriceComingSoon = true;
     });
 
     const shippingSelect = document.getElementById('shipping-select');
@@ -3458,22 +3701,6 @@ window.submitOrder = async function(event) {
     const finalDiscount = Math.min(discount, subtotal);
     const totalAmount = Math.max(0, subtotal - finalDiscount) + deliveryCharge;
     const orderId = generateOrderId();
-
-    if (appliedCoupon) {
-        try {
-            const cleanPhone = phone.replace(/[^0-9]/g, '');
-            const q = window.fbQuery(
-                window.fbCollection(window.db, 'coupon_usage'),
-                window.fbWhere('code', '==', appliedCoupon.code.toUpperCase()),
-                window.fbWhere('phone', '==', cleanPhone)
-            );
-            const snap = await window.fbGetDocs(q);
-            if (!snap.empty) {
-                alert('❌ এই ফোন থেকে ইতিমধ্যে "' + appliedCoupon.code + '" ব্যবহার হয়েছে।');
-                return;
-            }
-        } catch (e) { console.warn(e); }
-    }
 
     try {
         if (window.db && window.fbAddDoc && window.fbCollection) {
@@ -3730,12 +3957,10 @@ window.showToast = function(message) {
     toastMsg.textContent = message;
     toast.classList.add('toast-visible');
     clearTimeout(toastTimeout);
-    toastTimeout = setTimeout(() => 
-        toastTimeout = setTimeout(() => toast.classList.remove('toast-visible'), 2500);
+    toastTimeout = setTimeout(() => toast.classList.remove('toast-visible'), 2500);
 };
-
-// ============================================
-// SWITCH TAB
+    // ============================================
+// SWITCH TAB (Navigation)
 // ============================================
 window.switchTab = function(tabName) {
     const sections = ['home', 'shop', 'wishlist', 'faq', 'product-details', 'about', 'privacy', 'terms', 'return-policy', 'contact', 'track-order', 'cart'];
@@ -3884,7 +4109,7 @@ window.trackCustomerOrder = async function() {
                     <div><strong style="color: var(--gold-color);">📞 ফোন:</strong> ${found.phone || '—'}</div>
                     <div><strong style="color: var(--gold-color);">📍 ঠিকানা:</strong> ${found.address || ''}, ${found.thana || ''}, ${found.city || ''}, ${found.district || ''}</div>
                     <div><strong style="color: var(--gold-color);">💳 পেমেন্ট:</strong> ${found.paymentMethod || '—'}</div>
-                    <div><strong style="color: var(--gold-color);">🕐 অর্ডারের তারিখ:</strong> ${niceDate}</div>
+                    <div><strong style="color: var(--gold-color);">🕐 তারিখ:</strong> ${niceDate}</div>
                 </div>
                 ${productList ? '<div style="margin-top: 12px;"><strong style="color: var(--gold-color); font-size: 13px;">🛍️ প্রোডাক্ট:</strong><ul style="list-style: none; padding: 0; margin-top: 8px;">' + productList + '</ul></div>' : ''}
                 <div style="margin-top: 15px; padding-top: 12px; border-top: 2px solid var(--border-color); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
@@ -3904,55 +4129,55 @@ window.trackCustomerOrder = async function() {
 // ============================================
 // SIDEBAR & THEME
 // ============================================
-const sidebarEl = document.getElementById('sidebar');
-const overlayEl = document.getElementById('overlay');
-const openSidebarEl = document.getElementById('openSidebar');
-const closeSidebarEl = document.getElementById('closeSidebar');
-
-if (openSidebarEl) openSidebarEl.addEventListener('click', () => {
-    if (sidebarEl) sidebarEl.classList.add('active');
-    if (overlayEl) overlayEl.classList.add('active');
-});
-if (closeSidebarEl) closeSidebarEl.addEventListener('click', closeSidebar);
-if (overlayEl) overlayEl.addEventListener('click', closeSidebar);
-
-function closeSidebar() {
-    if (sidebarEl) sidebarEl.classList.remove('active');
-    if (overlayEl) overlayEl.classList.remove('active');
+function openSidebarMenu() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    if (sidebar) sidebar.classList.add('active');
+    if (overlay) overlay.classList.add('active');
 }
 
+window.closeSidebar = function() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    if (sidebar) sidebar.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
+};
+
 const htmlElement = document.documentElement;
-const sidebarThemeToggleBtn = document.getElementById('sidebarThemeToggleBtn');
-const themeIcon = document.getElementById('themeIcon');
-const themeText = document.getElementById('themeText');
-const headerThemeToggleBtn = document.getElementById('headerThemeToggleBtn');
 
 window.toggleTheme = function() {
     if (htmlElement.getAttribute('data-theme') === 'dark') {
         htmlElement.setAttribute('data-theme', 'light');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
         if (themeIcon) themeIcon.className = 'fas fa-sun';
         if (themeText) themeText.textContent = 'Light';
         localStorage.setItem('thc_theme', 'light');
     } else {
         htmlElement.setAttribute('data-theme', 'dark');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
         if (themeIcon) themeIcon.className = 'fas fa-moon';
         if (themeText) themeText.textContent = 'Dark';
         localStorage.setItem('thc_theme', 'dark');
     }
 };
 
-if (localStorage.getItem('thc_theme') === 'light') {
-    htmlElement.setAttribute('data-theme', 'light');
-    if (themeIcon) themeIcon.className = 'fas fa-sun';
-    if (themeText) themeText.textContent = 'Light';
-} else {
-    htmlElement.setAttribute('data-theme', 'dark');
-    if (themeIcon) themeIcon.className = 'fas fa-moon';
-    if (themeText) themeText.textContent = 'Dark';
+function applySavedTheme() {
+    if (localStorage.getItem('thc_theme') === 'light') {
+        htmlElement.setAttribute('data-theme', 'light');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        if (themeIcon) themeIcon.className = 'fas fa-sun';
+        if (themeText) themeText.textContent = 'Light';
+    } else {
+        htmlElement.setAttribute('data-theme', 'dark');
+        const themeIcon = document.getElementById('themeIcon');
+        const themeText = document.getElementById('themeText');
+        if (themeIcon) themeIcon.className = 'fas fa-moon';
+        if (themeText) themeText.textContent = 'Dark';
+    }
 }
-
-if (headerThemeToggleBtn) headerThemeToggleBtn.addEventListener('click', toggleTheme);
-if (sidebarThemeToggleBtn) sidebarThemeToggleBtn.addEventListener('click', toggleTheme);
 
 // ============================================
 // MODALS
@@ -3963,11 +4188,13 @@ window.openImageModal = function(imgSrc) {
     if (!modal || !modalImg) return;
     modalImg.src = imgSrc;
     modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
 };
 
 window.closeImageModal = function() {
     const modal = document.getElementById('image-modal');
     if (modal) modal.classList.remove('active');
+    document.body.style.overflow = '';
 };
 
 function convertToEmbedUrl(url) {
@@ -3988,8 +4215,8 @@ window.openVideoModal = function(videoUrl) {
     if (!embedUrl) { showToast('❌ ভিডিও লিংক সাপোর্টেড নয়'); return; }
     const modal = document.getElementById('video-modal');
     const iframe = document.getElementById('video-iframe');
-    iframe.src = embedUrl + (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1&rel=0';
-    modal.classList.add('active');
+    if (iframe) iframe.src = embedUrl + (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1&rel=0';
+    if (modal) modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 };
 
@@ -4020,12 +4247,14 @@ window.openShareModal = function(productId, event) {
     if (fbEl) fbEl.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
     if (twEl) twEl.href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl);
 
-    document.getElementById('share-modal').classList.add('active');
+    const modal = document.getElementById('share-modal');
+    if (modal) modal.classList.add('active');
 };
 
 window.closeShareModal = function(event) {
     if (event && event.target !== event.currentTarget) return;
-    document.getElementById('share-modal').classList.remove('active');
+    const modal = document.getElementById('share-modal');
+    if (modal) modal.classList.remove('active');
 };
 
 window.copyProductLink = function() {
@@ -4051,15 +4280,18 @@ function formatMeasure(cm) { return sizeChartUnit === 'inch' ? cmToInch(cm) + '"
 window.openSizeChart = function(category) {
     currentSizeChartCategory = category || 'default';
     const data = getSizeChartData(currentSizeChartCategory);
-    document.getElementById('size-chart-title').textContent = data.title || 'Size Guide';
+    const titleEl = document.getElementById('size-chart-title');
+    if (titleEl) titleEl.textContent = data.title || 'Size Guide';
     renderSizeChartTable();
-    document.getElementById('size-chart-modal').classList.add('active');
+    const modal = document.getElementById('size-chart-modal');
+    if (modal) modal.classList.add('active');
     document.body.style.overflow = 'hidden';
 };
 
 window.closeSizeChart = function(event) {
     if (event && event.target !== event.currentTarget) return;
-    document.getElementById('size-chart-modal').classList.remove('active');
+    const modal = document.getElementById('size-chart-modal');
+    if (modal) modal.classList.remove('active');
     document.body.style.overflow = '';
 };
 
@@ -4107,29 +4339,11 @@ function renderSizeChartTable() {
 }
 
 // ============================================
-// BACK TO TOP + SCROLL
+// BACK TO TOP
 // ============================================
 window.scrollToTop = function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 };
-
-let scrollTick = false;
-window.addEventListener('scroll', () => {
-    if (scrollTick) return;
-    scrollTick = true;
-    requestAnimationFrame(() => {
-        const header = document.getElementById('main-header');
-        if (header) header.classList.toggle('shrunk', window.scrollY > 80);
-        const btn = document.getElementById('back-to-top');
-        if (btn) btn.classList.toggle('visible', window.scrollY > 400);
-        const progress = document.getElementById('reading-progress');
-        if (progress) {
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            progress.style.width = (docHeight > 0 ? (window.scrollY / docHeight) * 100 : 0) + '%';
-        }
-        scrollTick = false;
-    });
-});
 
 // ============================================
 // URL HANDLING
@@ -4151,39 +4365,17 @@ function handleInitialURL() {
 }
 
 // ============================================
-// ESC KEY
-// ============================================
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeMiniCart();
-        closeShareModal();
-        closeImageModal();
-        closeSizeChart();
-        closeVideoModal();
-    }
-});
-
-// ============================================
 // PAGE INIT
 // ============================================
 window.addEventListener('DOMContentLoaded', function() {
-    updateCartUI();
-    updateWishlistBadge();
-    renderFAQ();
-    renderMiniCart();
-    setTimeout(handleInitialURL, 3000);
+    // These will run after initWebsite
+    setTimeout(() => {
+        if (typeof updateCartUI === 'function') updateCartUI();
+        if (typeof updateWishlistBadge === 'function') updateWishlistBadge();
+        if (typeof renderMiniCart === 'function') renderMiniCart();
+        if (typeof renderFAQ === 'function') renderFAQ();
+    }, 1000);
 });
-
-// Extra safety
-setTimeout(() => {
-    if (window.settingsCache) {
-        renderPaymentMethods();
-        renderContactIconsOnWebsite();
-        if (document.getElementById('track-order-section') && document.getElementById('track-order-section').classList.contains('active-page')) {
-            renderCouriersTrackPage();
-        }
-    }
-}, 3500);
 </script>
 
 <!-- ============================================ -->
