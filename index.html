@@ -32,14 +32,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
-    <!-- ⚡ FAST CACHE + REALTIME SYNC -->
     <script>
         window.CACHE_KEYS = {
             products: 'thc_cache_products_v1', settings: 'thc_cache_settings_v1',
             banners: 'thc_cache_banners_v1', faq: 'thc_cache_faq_v1',
             pages: 'thc_cache_pages_v1', coupons: 'thc_cache_coupons_v1',
-            sizeCharts: 'thc_cache_sizeCharts_v1', homeCollections: 'thc_cache_homeCollections_v1',
-            reviews: 'thc_cache_reviews_v1'
+            sizeCharts: 'thc_cache_sizeCharts_v1', homeCollections: 'thc_cache_homeCollections_v1'
         };
         window.CACHE_TTL = 24 * 60 * 60 * 1000;
 
@@ -77,7 +75,6 @@
             contactIcons: [], paymentMethods: [], couriers: []
         };
 
-        // Load cache instantly
         try {
             const cachedSettings = window.loadFromCache(window.CACHE_KEYS.settings);
             window.settingsCache = cachedSettings ? { ...window.DEFAULT_SETTINGS, ...cachedSettings } : { ...window.DEFAULT_SETTINGS };
@@ -88,11 +85,11 @@
             window.pagesCache = window.loadFromCache(window.CACHE_KEYS.pages) || {};
             window.couponsCache = window.loadFromCache(window.CACHE_KEYS.coupons) || [];
             window.sizeChartsCache = window.loadFromCache(window.CACHE_KEYS.sizeCharts) || {};
-            window.reviewsCache = window.loadFromCache(window.CACHE_KEYS.reviews) || {};
+            // Cache for reviews loaded lazily
+            window.productReviewsCache = {};
             console.log('⚡ Cache loaded instantly');
         } catch(e) { console.warn('Cache error:', e); }
 
-        // ⚡ BROADCASTCHANNEL — Admin → Website instant sync
         window.REALTIME_SYNC = {
             channel: null,
             init: function() {
@@ -100,20 +97,16 @@
                     this.channel = new BroadcastChannel('thc_admin_sync');
                     this.channel.onmessage = (e) => {
                         const { type, key, data } = e.data || {};
-                        if (type === 'UPDATE' && key) {
-                            console.log('🔄 BroadcastChannel:', key);
-                            this.handleUpdate(key, data);
-                        } else if (type === 'CLEAR_ALL') {
+                        if (type === 'UPDATE' && key) this.handleUpdate(key, data);
+                        else if (type === 'CLEAR_ALL') {
                             Object.values(window.CACHE_KEYS).forEach(k => localStorage.removeItem(k));
                             window.location.reload();
                         }
                     };
-                    console.log('✅ BroadcastChannel ready');
-                } catch(e) { console.warn('BroadcastChannel not supported'); }
+                } catch(e) {}
 
                 window.addEventListener('storage', (e) => {
                     if (!e.key || !e.key.startsWith('thc_cache_')) return;
-                    console.log('🔄 Storage event:', e.key);
                     window.location.reload();
                 });
             },
@@ -127,8 +120,7 @@
                     }
                 }
                 if (key === 'banners' || key === '__ALL__') {
-                    const banners = data || window.loadFromCache(window.CACHE_KEYS.banners) || [];
-                    window.bannersCache = banners;
+                    window.bannersCache = data || window.loadFromCache(window.CACHE_KEYS.banners) || [];
                     if (typeof renderBannerSlider === 'function') renderBannerSlider();
                     window.showSyncToast && window.showSyncToast();
                 }
@@ -155,9 +147,6 @@
                 if (key === 'pages' || key === '__ALL__') {
                     window.pagesCache = data || window.loadFromCache(window.CACHE_KEYS.pages) || {};
                 }
-                if (key === 'reviews' || key === '__ALL__') {
-                    window.reviewsCache = data || window.loadFromCache(window.CACHE_KEYS.reviews) || {};
-                }
             }
         };
 
@@ -180,10 +169,9 @@
         };
     </script>
 
-    <!-- ⚡ FIREBASE -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-        import { getFirestore, collection, getDocs, addDoc, doc, getDoc, onSnapshot, query, where } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
+        import { getFirestore, collection, getDocs, addDoc, doc, getDoc, onSnapshot, query, where, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyCBTi9qkpKgWkyDFyjQpJtTeFDr-54I9dA",
@@ -206,6 +194,8 @@
         window.fbOnSnapshot = onSnapshot;
         window.fbQuery = query;
         window.fbWhere = where;
+        window.fbUpdateDoc = updateDoc;
+        window.fbIncrement = increment;
 
         window.hideGlobalLoader = function() {
             const el = document.getElementById('global-loader');
@@ -229,7 +219,7 @@
             try {
                 const pSnap = await getDocs(collection(db, 'products'));
                 const arr = [];
-                pSnap.forEach(d => arr.push({ id: d.id, ...d.data() }));
+                pSnap.forEach(d => arr.push({ docId: d.id, ...d.data() })); // docId added here
                 arr.sort((a, b) => (parseInt(a.id) || 0) - (parseInt(b.id) || 0));
                 window.productsCache = arr;
                 window.saveToCache(window.CACHE_KEYS.products, arr);
@@ -289,30 +279,15 @@
                 window.saveToCache(window.CACHE_KEYS.sizeCharts, obj);
             } catch (e) { console.warn('SizeCharts:', e); }
 
-            try {
-                const rSnap = await getDocs(collection(db, 'reviews'));
-                const obj = {};
-                rSnap.forEach(d => {
-                    const data = d.data();
-                    const pid = data.productId;
-                    if (pid === undefined || pid === null) return;
-                    const key = String(pid);
-                    if (!obj[key]) obj[key] = [];
-                    obj[key].push({ id: d.id, ...data });
-                });
-                window.reviewsCache = obj;
-                window.saveToCache(window.CACHE_KEYS.reviews, obj);
-            } catch (e) { console.warn('Reviews:', e); }
-
             console.log('✅ Background load complete');
         }
 
-        // 🔴 REALTIME LISTENERS
+        // 🔴 REALTIME LISTENERS (Reviews removed to save reads)
         window.attachRealtimeListeners = function() {
             try {
                 onSnapshot(collection(db, 'products'), (snap) => {
                     const arr = [];
-                    snap.forEach(d => arr.push({ id: d.id, ...d.data() }));
+                    snap.forEach(d => arr.push({ docId: d.id, ...d.data() }));
                     arr.sort((a, b) => (parseInt(a.id) || 0) - (parseInt(b.id) || 0));
                     window.productsCache = arr;
                     window.saveToCache(window.CACHE_KEYS.products, arr);
@@ -331,10 +306,6 @@
                     if (typeof renderBannerSlider === 'function') renderBannerSlider();
                     window.showSyncToast();
                 }, err => console.warn('Banners listener:', err.message));
-            } catch(e) {}
-
-            try {
-                onSnapshot(collection(db, 'settings', ), () => {});
             } catch(e) {}
 
             try {
@@ -2021,6 +1992,27 @@ window.openProductDetails = function(productId) {
     switchTab('product-details');
     window.scrollTo(0, 0);
     setTimeout(attachGallerySwipeHandlers, 50);
+
+    // Lazy-load reviews for this product only
+    fetchReviewsForProduct(productId).then(() => {
+        if (currentProductId !== productId) return;
+        const pdSection = document.getElementById('product-details-section');
+        if (!pdSection || !pdSection.classList.contains('active-page')) return;
+        const container = document.getElementById('product-details-content');
+        if (!container) return;
+        const newHtml = renderRatingSection(productId);
+        const temp = document.createElement('div');
+        temp.innerHTML = newHtml;
+        const oldSummary = container.querySelector('.rating-summary');
+        const oldReview = container.querySelector('.review-section');
+        const oldList = container.querySelector('.review-list');
+        const newSummary = temp.querySelector('.rating-summary');
+        const newReview = temp.querySelector('.review-section');
+        const newList = temp.querySelector('.review-list');
+        if (oldSummary && newSummary) oldSummary.replaceWith(newSummary);
+        if (oldReview && newReview) oldReview.replaceWith(newReview);
+        if (oldList && newList) oldList.replaceWith(newList);
+    });
 };
 
 function setGalleryImages(images, mainImage) {
@@ -2181,17 +2173,35 @@ window.renderRelatedProducts = function(productId) {
 // REVIEWS
 // ============================================
 function getProductReviews(productId) {
-    if (!window.reviewsCache) return [];
-    return window.reviewsCache[String(productId)] || [];
+    return window.productReviewsCache[String(productId)] || [];
+}
+
+async function fetchReviewsForProduct(productId) {
+    if (!window.db || !window.fbGetDocs || !window.fbCollection || !window.fbQuery || !window.fbWhere) return [];
+    try {
+        const q = window.fbQuery(window.fbCollection(window.db, 'reviews'), window.fbWhere('productId', '==', String(productId)));
+        const snap = await window.fbGetDocs(q);
+        const arr = [];
+        snap.forEach(d => arr.push({ id: d.id, ...d.data() }));
+        arr.sort((a, b) => new Date(b.date || 0) - new Date(a.date || 0));
+        window.productReviewsCache[String(productId)] = arr;
+        return arr;
+    } catch (err) {
+        console.warn('Fetch reviews failed:', err.message);
+        return [];
+    }
 }
 
 function calculateRatingStats(productId) {
-    const reviews = getProductReviews(productId);
-    if (reviews.length === 0) return { average: 0, total: 0, distribution: {5:0,4:0,3:0,2:0,1:0} };
-    const distribution = {5:0,4:0,3:0,2:0,1:0};
-    let sum = 0;
-    reviews.forEach(r => { const rt = parseInt(r.rating) || 0; sum += rt; if (distribution[rt] !== undefined) distribution[rt]++; });
-    return { average: (sum / reviews.length).toFixed(1), total: reviews.length, distribution };
+    const product = (window.productsCache || []).find(p => parseInt(p.id) === parseInt(productId));
+    if (!product || !product.reviewCount) return { average: 0, total: 0, distribution: {5:0,4:0,3:0,2:0,1:0} };
+    const total = product.reviewCount || 0;
+    const sum = product.ratingSum || 0;
+    return {
+        average: total > 0 ? (sum / total).toFixed(1) : 0,
+        total: total,
+        distribution: product.ratingDist || {5:0,4:0,3:0,2:0,1:0}
+    };
 }
 
 function renderStars(rating) {
@@ -2236,11 +2246,27 @@ window.submitReview = async function() {
             name: name, rating: currentRating, text: text || '(no comment)',
             date: new Date().toISOString(), createdAt: new Date().toISOString()
         });
-        if (!window.reviewsCache) window.reviewsCache = {};
+        // Update Product Stats
+        const product = (window.productsCache || []).find(p => parseInt(p.id) === parseInt(currentProductId));
+        if (product && product.docId && window.fbUpdateDoc && window.fbIncrement) {
+            try {
+                await window.fbUpdateDoc(window.fbDoc(window.db, 'products', product.docId), {
+                    reviewCount: window.fbIncrement(1),
+                    ratingSum: window.fbIncrement(currentRating),
+                    ['ratingDist.' + currentRating]: window.fbIncrement(1)
+                });
+                product.reviewCount = (product.reviewCount || 0) + 1;
+                product.ratingSum = (product.ratingSum || 0) + currentRating;
+                if (!product.ratingDist) product.ratingDist = {5:0,4:0,3:0,2:0,1:0};
+                product.ratingDist[currentRating] = (product.ratingDist[currentRating] || 0) + 1;
+            } catch (e) { console.warn('Failed to update product stats', e); }
+        }
+        
+        // Update local cache
         const key = String(currentProductId);
-        if (!window.reviewsCache[key]) window.reviewsCache[key] = [];
-        window.reviewsCache[key].unshift({ id: docRef.id, productId: key, name, rating: currentRating, text: text || '(no comment)', date: new Date().toISOString() });
-        if (window.saveToCache) window.saveToCache(window.CACHE_KEYS.reviews, window.reviewsCache);
+        if (!window.productReviewsCache[key]) window.productReviewsCache[key] = [];
+        window.productReviewsCache[key].unshift({ id: docRef.id, productId: key, name, rating: currentRating, text: text || '(no comment)', date: new Date().toISOString() });
+        
         showToast('✅ ধন্যবাদ! Review যোগ হয়েছে');
         currentRating = 0;
         isSubmittingReview = false;
